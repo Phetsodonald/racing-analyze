@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "jasmine": "^6.0.0"
+  },
+  "name": "racing-analyze",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phetsodonald/racing-analyze.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Phetsodonald/racing-analyze/issues"
+  },
+  "homepage": "https://github.com/Phetsodonald/racing-analyze#readme"
+}
