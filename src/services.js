@@ -11,4 +11,12 @@ async function getDriversData() {
   }
 }
 
-getDriversData();
+async function getSessionData() {
+    try {
+        const res = await axios.get(`${BASE_URL}/sessions`);
+        console.log(res.data)
+    } catch (error) {
+        console.error(error.message)
+    }
+}
+
