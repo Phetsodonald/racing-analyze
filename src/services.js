@@ -50,12 +50,3 @@ async function getCarData() {
     throw new Error(error.message)
   }
 }
-
-
-getCarData()
-  .then(data => {
-    console.log('Sample telemetry:', data);
-  })
-  .catch(err => {
-    console.error(err.message);
-  });
