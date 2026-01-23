@@ -50,3 +50,6 @@ async function getCarData() {
     throw new Error(error.message)
   }
 }
+
+
+module.exports = {getCarData, getDriversData, getLapsData, getSessionData}
