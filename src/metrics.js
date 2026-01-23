@@ -1,4 +1,4 @@
-const {getLapsData} = require('./services');
+const {getLapsData, getCarData} = require('./services');
 
 
 async function getAverageLapTime() {
@@ -10,4 +10,13 @@ async function getAverageLapTime() {
 }
 
 
+
+async function getSpeedOverTime() {
+  const carData = await getCarData();
+
+  return carData.map(d => ({
+    time: d.date,
+    speed: d.speed
+  }));
+}
 
