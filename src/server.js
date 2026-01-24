@@ -6,8 +6,9 @@ const {
   getThrottleBrakeRatio,
   getDriverConsistency,
   getSpeedOverTime
-} = require('./analytics');
+} = require('./metrics');
 
+const {getDriversData} = require('./services')
 const app = express();
 const PORT = 3000;
 
@@ -29,6 +30,31 @@ app.get('/api/dashboard', async (req, res) => {
   res.json(data);
 });
 
+app.get('/api/home', async (req, res) => {
+  try {
+    const drivers = await getDriversData();
+
+    const seen = new Set();
+    const uniqueDrivers = [];
+
+    for (const d of drivers) {
+      if (!seen.has(d.driver_number)) {
+        seen.add(d.driver_number);
+        uniqueDrivers.push({
+          driver_number: d.driver_number,
+          full_name: d.full_name,
+          team_name: d.team_name
+        });
+      }
+    }
+
+    res.json(uniqueDrivers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
 app.listen(PORT, () =>
-  console.log(`Dashboard running on http://localhost:${PORT}`)
+  console.log(`Dashboard running on http://localhost:${PORT}/api/home`)
 );

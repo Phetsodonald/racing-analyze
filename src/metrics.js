@@ -71,6 +71,3 @@ module.exports = {
   getDriverConsistency,
   getSpeedOverTime
 };
-
-getAverageLapTime(9156, 20).then
-((data) => console.log(data))
