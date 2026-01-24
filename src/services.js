@@ -12,44 +12,47 @@ async function getDriversData() {
 }
 
 async function getSessionData() {
-    try {
-        const res = await axios.get(`${BASE_URL}/sessions`);
-        return res.data
-    } catch (error) {
-        throw new Error(error.message)
-    }
+  try {
+    const res = await axios.get(`${BASE_URL}/sessions`);
+    return res.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
 }
 
-async function getLapsData() {
+async function getLapsData(sessionKey, driverNumber) {
   try {
     const res = await axios.get(`${BASE_URL}/laps`, {
       params: {
-        session_key: 9158,
-        driver_number: 44 
+        session_key: sessionKey,
+        driver_number: driverNumber
       }
     });
 
-    return res.data
+    return res.data;
   } catch (error) {
-    throw new Error(error.message)
+    throw new Error(error.message);
   }
 }
 
-
-async function getCarData() {
+async function getCarData(sessionKey, driverNumber) {
   try {
     const res = await axios.get(`${BASE_URL}/car_data`, {
       params: {
-        session_key: 9158,
-        driver_number: 1
+        session_key: sessionKey,
+        driver_number: driverNumber
       }
     });
 
-    return res.data.slice(0, 5)
+    return res.data;
   } catch (error) {
-    throw new Error(error.message)
+    throw new Error(error.message);
   }
 }
 
-
-module.exports = {getCarData, getDriversData, getLapsData, getSessionData}
+module.exports = {
+  getDriversData,
+  getSessionData,
+  getLapsData,
+  getCarData
+};
