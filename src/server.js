@@ -43,7 +43,14 @@ app.get('/api/home', async (req, res) => {
         uniqueDrivers.push({
           driver_number: d.driver_number,
           full_name: d.full_name,
-          team_name: d.team_name
+          team_name: d.team_name,
+          name_acronym: d.name_acronym,
+          driver_number: d.driver_number,
+          headshot_url: d.headshot_url,
+          country_code: d.country_code,
+          session_key: d.session_key,
+          meeting_key: d.meeting_key,
+          team_colour: d.team_colour
         });
       }
     }
