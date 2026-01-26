@@ -1,4 +1,6 @@
 const express = require('express');
+const cors = require('cors');
+
 const {
   getAverageLapTime,
   getMaxLapSpeed,
@@ -12,7 +14,8 @@ const {getDriversData} = require('./services')
 const app = express();
 const PORT = 3000;
 
-app.use(express.static('public'));
+app.use(express.static('index.html'));
+app.use(cors())
 
 app.get('/api/dashboard', async (req, res) => {
   const sessionKey = 9158;
@@ -30,7 +33,7 @@ app.get('/api/dashboard', async (req, res) => {
   res.json(data);
 });
 
-app.get('/api/home', async (req, res) => {
+app.get('/api/drivers', async (req, res) => {
   try {
     const drivers = await getDriversData();
 
@@ -63,5 +66,5 @@ app.get('/api/home', async (req, res) => {
 
 
 app.listen(PORT, () =>
-  console.log(`Dashboard running on http://localhost:${PORT}/api/home`)
+  console.log(`Dashboard running on http://localhost:${PORT}/api/drivers`)
 );
