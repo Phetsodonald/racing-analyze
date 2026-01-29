@@ -7,12 +7,13 @@
 
 body {
   background: #f8f8f8;
-  color: #fff;
+  color: #474747;
 }
 
 .header {
   padding: 10px;
-  background-color: #732b2b;
+  background-color: #42455e;
+  color: #eaeaea;
 }
 
 .drivers-grid {

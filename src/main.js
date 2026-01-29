@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const drivers = await getDrivers();
 
-    // Build HTML for all drivers
+    
     driversContainer.innerHTML = drivers.map(driver => {
       const imageSrc = driver.headshot_url || FALLBACK_IMAGE;
       return `
