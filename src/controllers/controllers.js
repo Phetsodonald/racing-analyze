@@ -1,10 +1,14 @@
 const { getDriversData, getSessionData } = require('../services/services');
 
+const sessionTypes = {
+  Qualifying: 'Qualifying',
+  Practice: 'Practice',
+  Race: 'Race'
+};
 
 async function getDrivers() {
   try {
     const drivers = await getDriversData();
-
     const driversMap = new Map();
 
     for (const driver of drivers) {
@@ -29,19 +33,22 @@ async function getDrivers() {
   }
 }
 
-
 async function getSessions(sessionType, year) {
+  if (!Object.values(sessionTypes).includes(sessionType)) {
+    throw new Error(`Invalid session type: ${sessionType}`);
+  }
+
   try {
     const sessions = await getSessionData();
-
     return sessions.filter(
-      session =>
-        session.session_type === sessionType &&
-        session.year === year
+      s => s.session_type === sessionType && s.year === year
     );
   } catch (error) {
     throw new Error(`Failed to fetch sessions: ${error.message}`);
   }
 }
 
-module.exports = { getDrivers, getSessions};
+module.exports = {
+  getDrivers,
+  getSessions
+};

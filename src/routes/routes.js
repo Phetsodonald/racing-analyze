@@ -3,7 +3,6 @@ const router = express.Router();
 
 const { getDrivers, getSessions } = require('../controllers/controllers');
 
-
 router.get('/drivers', async (req, res) => {
   try {
     const drivers = await getDrivers();
@@ -13,15 +12,14 @@ router.get('/drivers', async (req, res) => {
   }
 });
 
-
 router.get('/sessions', async (req, res) => {
   try {
     const { type, year } = req.query;
 
     if (!type || !year) {
-      return res
-        .status(400)
-        .json({ error: 'type and year are required' });
+      return res.status(400).json({
+        error: 'type and year are required'
+      });
     }
 
     const sessions = await getSessions(type, Number(year));

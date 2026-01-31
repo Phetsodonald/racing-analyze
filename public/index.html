@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>F1 Performance Dashboard</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <h1>F1 Performance Dashboard</h1>
+  <p>Live session analytics powered by OpenF1 API</p>
+
+  <div class="controls">
+    <select id="sessionType">
+      <option value="Race">Race</option>
+      <option value="Qualifying">Qualifying</option>
+      <option value="Practice">Practice</option>
+    </select>
+
+    <select id="seasonYear">
+      <option value="2025">2025</option>
+      <option value="2024">2024</option>
+    </select>
+  </div>
+
+  <div class="dashboard">
+    <div class="card">
+      <h3>Total Sessions</h3>
+      <h2 id="totalSessions">—</h2>
+    </div>
+    <div class="card">
+      <h3>Total Circuits</h3>
+      <h2 id="totalCircuits">—</h2>
+    </div>
+    <div class="card">
+      <h3>Season</h3>
+      <h2 id="seasonLabel">—</h2>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <div class="card">
+      <h3>Sessions per Circuit</h3>
+      <canvas id="sessionsByCircuit"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>Sessions Timeline</h3>
+      <canvas id="sessionsTimeline"></canvas>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
