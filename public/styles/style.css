@@ -19,13 +19,38 @@ body {
   color: var(--text);
 }
 
-h1 {
-  font-size: 2rem;
+header,ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-p {
-  color: var(--muted);
-  margin-bottom: 2rem;
+header{
+  box-shadow: 10px 10px 10px var(--bg);
+  margin-bottom: 10px;
+}
+
+ul{
+  list-style: none;
+  column-gap: 10px;
+  font-weight: bold;
+  color: var(--text);
+}
+
+ul > li > a{
+  color: var(--text);
+  font-size: large;
+  text-decoration: none;
+  transition: all 0.35s;
+}
+
+ul > li > a:hover{
+  opacity: 0.6;
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--text);
 }
 
 .controls {
