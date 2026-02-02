@@ -8,7 +8,7 @@ async function loadDrivers() {
     const card = document.createElement('div');
     card.className = 'driver-card';
 
-    const imageSrc = driver.headshot_url || 'https://tse3.mm.bing.net/th/id/OIP.KLGjPa0aDuHx7cdu00_65QHaHV?rs=1&pid=ImgDetMain&o=7&rm=3';
+    const imageSrc = driver.headshot_url || 'https://drumeoblog.s3.amazonaws.com/beat/wp-content/uploads/2021/08/04123815/default-avatar.png';
     const country = driver.country_code || 'N/A';
 
     card.innerHTML = `
