@@ -15,7 +15,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
