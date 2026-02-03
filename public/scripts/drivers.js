@@ -1,7 +1,7 @@
 const container = document.getElementById('drivers-container');
 
 async function loadDrivers() {
-  const res = await fetch('http://localhost:3000/api/drivers');
+  const res = await fetch('/api/drivers');
   const drivers = await res.json();
 
   drivers.forEach(driver => {
